@@ -1,0 +1,25 @@
+<section class="border border-black">
+    <div class="text-2xl text-red-500 border">Tailwind test-login</div>
+    <div class="flex flex-col items-center justify-center">
+    <form class="space-y-4 md:space-y-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="email">Email</label>
+            <input type="text" formControlName="email" id="email" placeholder="Please Enter Email">
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                Email is required
+            </div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" id="password" placeholder="Please Enter Password">
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                Password cannot be empty
+            </div>
+        </div>
+        <div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+</div>
+</section>
+
